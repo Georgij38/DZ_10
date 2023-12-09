@@ -29,6 +29,10 @@ class Phone(Field):
             raise ValueError
 
 
+class Birthday(Field):
+    pass
+
+
 class Record:  # Клас для зберігання інформації про контакт, включаючи ім'я та список телефонів.
     def __init__(self, name):
         self.name = Name(name)
