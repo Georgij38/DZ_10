@@ -70,7 +70,7 @@ class Record:  # Клас для зберігання інформації пр�
         try:
             return Birthday(date)
         except ValueError as error:
-            print(self._name.value,' : ', error)
+            print(self._name.value, ' : ', error)
 
     def find_phone(self, phone):  # пошук
         for el in self._phones:
@@ -124,21 +124,22 @@ class Record:  # Клас для зберігання інформації пр�
         return result
 
     @phone.setter
-    def phone(self,phone):
+    def phone(self, phone):
         try:
             self._phones.append(Phone(phone))
         except ValueError as error:
             print(error)
 
+
 class AddressBook(UserDict):  # Клас для зберігання та управління записами.
 
     def add_record(self, obg_record):  # додає запис до self.data
-        self.data[str(obg_record._name)] = obg_record
+        self.data[str(obg_record.name)] = obg_record
 
     def find(self, name):  # знаходить запис за ім'ям.
         for key, value in self.data.items():
             if str(key) == name:
-                return value
+                return key, value
 
     def delete(self, name):
         for key in self.data.keys():
